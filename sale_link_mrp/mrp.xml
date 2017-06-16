@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="mrp_production_linked_form_view" model="ir.ui.view">
+            <field name="name">mrp.production.linked.form</field>
+            <field name="model">mrp.production</field>
+            <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='origin']" position="after">
+                    <field name="partner_id" attrs="{'invisible': [('partner_id', '=', False)], 'readonly': 1}"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>

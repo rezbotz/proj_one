@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+        <template id="report_saleorder_document_requested" inherit_id="sale.report_saleorder_document">
+            <xpath expr="//div[@name='payment_term']" position="before">
+                <div t-if="doc.requested_date" class="col-xs-3">
+                    <strong>Requested Date:</strong>
+                    <p t-field="doc.requested_date"/>
+                </div>
+            </xpath>
+        </template>
+	</data>
+</openerp>
