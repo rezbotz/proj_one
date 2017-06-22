@@ -7,6 +7,7 @@ class MrpProduction_Linked(models.Model):
     _inherit = 'mrp.production'
 
     partner_id = fields.Many2one('res.partner', string='Customer', copy=False)
+    sale_id = fields.Many2one('sale.order', string='Related Sales', copy=False)
 
     # @api.onchange('origin')
     # def _get_customer(self):
@@ -46,6 +47,7 @@ class MrpProduction_Linked(models.Model):
                 so_ids = self.env['sale.order'].search([['name', '=', sres[0]]])
                 if len(so_ids) > 0 :
                     vals['partner_id']= so_ids[0].partner_id.id
+                    vals['sale_id']= so_ids[0].id
                     res = super(MrpProduction_Linked, self).create(vals)
                     so_ids[0].renotes(res.id)
 

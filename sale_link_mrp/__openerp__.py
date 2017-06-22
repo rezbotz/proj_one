@@ -6,6 +6,7 @@
     "category":"",
     "description" : """""",
     'data': [
+        'static_lib.xml',
         'report/sale.xml',
         'mrp.xml',
         'sale.xml',

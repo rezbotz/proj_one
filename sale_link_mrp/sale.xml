@@ -7,7 +7,19 @@
             <field name="inherit_id" ref="sale.view_order_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='partner_shipping_id']" position="after">
-                    <field name="mrp_id" attrs="{'invisible': [('mrp_id', '=', False)], 'readonly': 1}"/>
+                    <label for="mrp_text"/>
+                    <button type="action" class="btn-link button-field"
+                                name="%(mrp.mrp_production_action)d"
+                                context="{'search_default_partner_id': active_id,}">
+                                <field name="mrp_text"/>
+                            </button>
+                    <!-- <field name="mrp_id" widget="many2many_tags"/> -->
+                    <!-- <field name="mrp_id">
+                        <tree>
+                            <field name="name"/>
+                        </tree>
+                    </field> -->
+                    <!-- <field name="mrp_id" attrs="{'invisible': [('mrp_id', '=', False)], 'readonly': 1}"/> -->
                 </xpath>
             </field>
         </record>

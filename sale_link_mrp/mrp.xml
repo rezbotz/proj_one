@@ -7,6 +7,7 @@
             <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='origin']" position="after">
+                    <field name="sale_id" attrs="{'invisible': 0, 'readonly': 0}"/>
                     <field name="partner_id" attrs="{'invisible': [('partner_id', '=', False)], 'readonly': 1}"/>
                 </xpath>
             </field>
