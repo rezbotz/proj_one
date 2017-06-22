@@ -6,13 +6,32 @@
             <field name="model">sale.order</field>
             <field name="inherit_id" ref="sale.view_order_form"/>
             <field name="arch" type="xml">
+                <!-- <xpath expr="//group" position="after"> -->
                 <xpath expr="//field[@name='partner_shipping_id']" position="after">
-                    <label for="mrp_text"/>
-                    <button type="action" class="btn-link button-field"
+                    <!-- <field name="mrp_text2"/> -->
+                            <label for="mrp_text" attrs="{'invisible': [('mrp_text', '=', 'false')], 'readonly': 1}"/>
+                            <button class="btn-link button-field" attrs="{'invisible': [('mrp_text', '=', 'false')], 'readonly': 1}"
+                                    type="object" name="search_mrp">
+                                    <field name="mrp_text"/>
+                            </button>
+
+                    <!--  WORKS
+                    <div style="width: 50%; display: flex">
+                        <div style="width: 50%;">
+                            <label for="mrp_text" attrs="{'invisible': [('mrp_text', '=', 'false')], 'readonly': 1}"/>
+                        </div>
+                        <div style="width: 50%;">
+                            <button class="btn-link button-field" attrs="{'invisible': [('mrp_text', '=', 'false')], 'readonly': 1}"
+                                    type="object" name="search_mrp">
+                                    <field name="mrp_text"/>
+                            </button>
+                        </div>
+                    </div> -->
+                    <!-- <button type="action" class="btn-link button-field"
                                 name="%(mrp.mrp_production_action)d"
                                 context="{'search_default_partner_id': active_id,}">
                                 <field name="mrp_text"/>
-                            </button>
+                            </button> -->
                     <!-- <field name="mrp_id" widget="many2many_tags"/> -->
                     <!-- <field name="mrp_id">
                         <tree>
